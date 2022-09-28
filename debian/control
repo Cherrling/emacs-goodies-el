@@ -1,0 +1,42 @@
+Source: emacs-goodies-el
+Section: editors
+Priority: optional
+Maintainer: Debian Emacsen team <debian-emacsen@lists.debian.org>
+Uploaders: David Bremner <bremner@debian.org>
+ , Nicholas D Steeves <nsteeves@gmail.com>
+Build-Depends: debhelper-compat (= 12)
+Rules-Requires-Root: no
+Standards-Version: 4.5.0
+Vcs-Browser: https://salsa.debian.org/emacsen-team/emacs-goodies-el
+Vcs-Git: https://salsa.debian.org/emacsen-team/emacs-goodies-el.git
+
+Package: emacs-goodies-el
+Architecture: all
+Depends: ${misc:Depends}
+ , elpa-browse-kill-ring
+ , elpa-diminish
+ , elpa-htmlize
+ , elpa-markdown-mode
+ , elpa-csv-mode
+ , elpa-graphviz-dot-mode
+ , elpa-apache-mode
+ , elpa-bm
+ , elpa-boxquote
+ , elpa-session
+ , elpa-pod-mode
+ , elpa-tabbar
+ , elpa-eproject
+ , elpa-initsplit
+ , elpa-bar-cursor
+ , elpa-mutt-alias
+ , elpa-folding
+ , elpa-muttrc-mode
+Recommends: elpa-color-theme-modern
+Replaces: emacs-goodies-extra-el
+Provides: emacs-goodies-extra-el
+Description: Miscellaneous add-ons for Emacs
+ This is a now a metapackage that installs the elpa-* packages
+ corresponding to some of the previously bundled add-ons.
+ .
+ See /usr/share/doc/emacs-goodies-el/README.Debian.gz for a discussion
+ of the disposition of previously bundled add-ons.

@@ -1,0 +1,412 @@
+Emacs Goodies for Debian
+------------------------
+
+  This file documents the status of Emacs addons that were
+  previously part of the emacs-goodies-el package.  The Debian Emacsen
+  team thanks Roland Mas, Peter S Galbraith, and Julian Gilbey for
+  their many years of work on emacs-goodies-el.
+
+
+Current Status
+--------------
+
+  In the following list, a prefix of "D" means "dropped", "E" means
+"elpafied", and "T" means "transitioned to an actively maintained
+alternative that has equivalent functionality".  Elpafied packages
+have been declared as dependencies in debian/control and are named
+something like "elpa-foo".  Transitioned usually means that the
+functionality is now part of GNU Emacs.  Suggested alternatives to
+Transitioned or Dropped packages are also found in this README.
+Please note that these suggested packages are not automatically
+installed.
+
+  The emacs-goodies-el changelog contains the history and
+justification for why a package was transitioned or dropped rather
+than elpafied.  The changelog also contains references to RFP (Request
+for Packaging) bugs; these bugs were filed for dropped packages that
+someone on the Debian Emacsen team believes are useful, but that--due
+to lack of interest, to third party software, or to niche hardware--no
+one wants to maintain.
+
+
+    ,----[ nice title ]
+  E | boxquote.el allows the easy creation of boxes that look like this,
+    | with a nice title and all.  Look for the M-x boxquote-* commands.
+    `----
+
+  T align-string.el provides M-x align-string and M-x align-all-strings,
+    to align vertically the first occurrences of a regexp over several
+    lines.
+    - Use functions from GNU Emacs built-in align.el instead. eg:
+      "M-x align-current", "C-u M-x align", et al.
+
+  D all.el provides M-x all, a way to see all lines matching a regexp
+    pattern in a special buffer.  Editing these lines in that buffer
+    propagates the changes back to the original buffer.
+
+  E apache-mode.el provides fontification when editing Apache
+    configuration files.
+
+  D ascii.el provides a way to display ASCII code on a window, that
+    is, display in another window an ASCII table highlighting the
+    current character code.
+
+  D auto-fill-inhibit.el provides a finer grained control over
+    auto-fill-mode activation.  Tu use it, simply load the file.  For
+    instance, adding (load-library "auto-fill-inhibit") to your .emacs
+    should do the trick.  You'll need to set the
+    auto-fill-inhibit-list variable to an appropriate value.
+
+  E bar-cursor.el allows you to change your cursor from a block to a
+    vertical bar in insert mode, and back to a block in overwrite mode.
+    Try M-x bar-cursor-mode.
+
+  E bm.el provides visible, buffer local, bookmarks and the ability to
+    jump forward and backward to the next bookmark.
+
+  D browse-huge-tar.el allows you to browse large tar files without reading
+    them into memory.  The trade off is memory usage vs. speed.
+
+  E browse-kill-ring.el provides M-x browse-kill-ring.el, to, well, browse
+    through your kill ring, perform searches on it, and insert items into
+    a buffer.
+
+  D button-lock.el is a minor mode which provides simple facilities to
+    define clickable text based on regular expressions (used by maplev.el).
+
+  T cfengine.el is an Emacs major-mode for editing cfengine scripts.
+    - Built into GNU Emacs 23 and dropped from emacs-goodies-el 31.6.
+
+  D clipper.el provides the M-x clipper-* commands to save strings of
+    data and insert them afterwards.  Each string is labelled with a
+    name, and can involve some basic template replacement.
+
+  T color-theme.el changes the colors used within Emacs.  They are lots of
+    themes to choose from.
+    - The built-in alternative consists of cus-theme.el and custom.el.
+      Custom themes were originally an XEmacs feature.  The Debian Emacsen
+      Team packages some of the most popular ones, and "apt search elpa.*theme"
+      will find them.
+      "M-x load-theme" will load a specific theme.
+      "M-x customize-themes" displays a selectable list of custom themes.
+    - Please note, custom themes behave very differently than color themes
+      when a theme is enabled or disabled.
+    - The elpa-color-theme-modern package is a port of most of the
+      color-themes to the new Emacs theme framework.  See RFP Bug #905246.
+      -- Thanks to Jörg Sommer for this tip.
+    - Elpa-color-theme-modern has been in Debian sid since 2019-11-13, and
+      emacs-goodies began recommending it 2019-11-12.
+
+  E csv-mode.el is a major mode for editing files of CSV type, which provides
+    commands, key bindings and a menu to sort records by field, kill and yank
+    columns, align and unalign fields, and transpose rows and columns.
+
+  D ctypes.el can search through source files hunting down typedefs.
+    When found, font-lock is informed and your source code will be
+    even more beautifully colored than before.
+
+  D coffee.el provides an Emacs interface to RFC2324-compliant coffee
+    devices
+
+  D dedicated.el allows you to toggle a window's "dedicated" flag.
+    When a window is "dedicated", Emacs will not select files into
+    that window.
+
+  D df.el provides M-x df, to display in the mode line space left on
+    devices.
+
+  D dict.el is an Emacs interface to dict client.
+    - Removed in emacs-goodies-el 36.0; Use dictionary-el instead.
+      -- Copied from psg's entry in emacs-goodies-el.texi on this topic.
+
+  E diminish.el provides M-x diminish, M-x diminish-undo and M-x
+    diminished-modes.  Diminished modes are minor modes with a shorter or
+    no modeline display.
+
+  T dir-locals.el provides a functionality similar to the local
+    variables defined in a file, but for an entire directory tree.
+    Use This library implements such a scheme, controlled by the
+    global minor mode `dir-locals-mode'.
+    - The use of dir-locals.el via ".emacs-locals" files has overwhelmingly
+      been replaced by the GNU Emacs built-in files.el via ".dir-locals.el"
+      files.  That said, dropping dir-locals.el has the potential to
+      inconvenience those who make extensive use of ".emacs-locals" files,
+      and these users would probably appreciate it if someone stepped forward
+      to maintain this package.  See RFP Bug #907284.
+
+  D edit-env.el lets you display, edit, delete and add environment variables.
+
+  D egocentric.el provides M-x egocentric-mode, a mode to highlight
+    your name (or other keywords) in buffers.  If you use Gnus, you
+    might want to add (add-hook 'gnus-article-prepare-hook
+    'egocentric-mode) to your Gnus init file.
+
+  E eproject.el is an extension that lets you group related files together as
+    projects.  It aims to be as unobtrusive as possible -- no new files are
+    created (or required to exist) on disk, and buffers that aren't a member
+    of a project are not affected in any way.
+
+  D ff-paths.el allows you to use C-x C-f normally most of the time,
+    except that if the requested file doesn't exist, it is checked against
+    a list of patterns for special paths to search for a file of the same
+    name.  Use (require 'ff-paths) in your .emacs to activate it.
+
+  D filladapt.el enhances the behavior of Emacs's fill functions by
+    guessing the proper fill prefix in many contexts.  Emacs has a
+    built-in adaptive fill mode but Filladapt is said to be much
+    better.  Use `M-x filladapt-mode' to toggle Filladapt mode on/off
+    in the current buffer.  Use 'turn-on-filladapt-mode in mode hooks.
+
+  E folding.el provides a minor mode for folding (hiding) parts of the edited
+    text or program.  Folding mode handles a document as a tree, where each
+    branch is bounded by special markers `{{{' and `}}}'.
+
+  D framepop.el makes temporary buffers such as *Help* or
+    *Completions* appear in a separate frame which is easily dismissed
+    when no longer needed.
+
+  D floatbg.el provides M-x floatbg-mode, to slowly modify the background
+    color of your Emacs.
+
+  E graphviz-dot-mode.el provides a mode for editing files in the dot-language
+    (www.graphviz.org and http://www.research.att.com/sw/tools/graphviz/).
+
+  T highlight-beyond-fill-column.el highlights (with a face you
+    choose) text that is beyond the fill-column, therefore providing a
+    visual indication of where the fill-* functions would wrap the
+    lines.  Enable it on a buffer using `M-x highlight-beyond-fill-column.'
+    You may use that command in a hook (e.g. text-mode-hook).
+    - The functionality of highlight-beyond-fill-column is now
+      provided by the GNU Emacs builtin whitespace-line-column.
+
+  T highlight-completion highlights completions in the minibuffer
+    - The GNU Emacs built-in "M-x enriched-mode" might prove to be a
+      suitable minimal replacement.
+    - elpa-ivy, elpa-swiper, and elpa-helm provide similar functionality.
+
+  T highlight-current-line.el highlights the line the cursor is in.
+    Enable a buffer using the command `M-x highlight-current-line-minor-mode'.
+    - The functionality of highlight-current-line.el is now provided by
+      the GNU Emacs builtin hl-line-mode.
+
+  D home-end.el provides some useful bindings for Home and End keys: hit the
+    key once to go to the beginning/end of a line, hit it twice in a row to go
+    to the beginning/end of the window, three times in a row goes to the
+    beginning/end of the buffer.  To enable it, customize the variable
+    `home-end-enable'.
+
+  E htmlize.el provides many M-x htmlize-* commands that turn files,
+    buffers, or region of font-lock colorized text into an HTML
+    representation.
+
+  E initsplit.el allows you to split Emacs customizations (set via M-x
+    customize) into different files, based on the names of the
+    variables.  To use it, just load the file in your .emacs: (load
+    "initsplit").  Note that you *must* load each file that contains
+    your various customizations from your .emacs.
+
+  D joc-toggle-buffer.el provides M-x joc-toggle-buffer, a command that can be
+    bound to a key in order to speed up the switching between two buffers.
+
+  D joc-toggle-case.el provides a sophisticated (over-engineered?) set
+    of functions to toggle the case of the character under point, with
+    which you can emulate vi's ~ function.  Look for the M-x
+    joc-toggle-case and M-x joc-toggle-case-* commands.
+
+  D keydef.el provides the `keydef' macro for use in .emacs files (or
+    similar).  It is an alternative (simpler) way to define keys, with
+    kbd syntax.  You should read the doc in keydef.el, as it is not
+    intended for interactive use.
+
+  D keywiz.el drills you about Emacs key-bindings.  You're presented
+    with the name of a command and the docstring, and then prompted
+    for the correct key sequence.  You'll earn one point for each
+    correct answer during the time limit.  Invoke with `M-x keywiz'.
+
+  D lcomp.el adds useful keybindings to the completions buffer.
+
+  D maplev.el is a major mode for Maple.
+
+  D map-lines.el provides M-x map-lines, a command to iterate a given
+    command over lines matching a regexp.
+
+  E markdown-mode.el provides support for editing Markdown files. It
+    provides syntax highlighting and basic element insertion commands.
+
+  D marker-visit.el provides a simple way to navigate among marks in a
+    buffer.  All the marks you've left while editing a buffer serve as
+    bread crumb trails of areas in the buffer you've edited.  It is
+    convenient to navigate back and forth among these marks in order.
+    This file provides two methods to do just that, marker-visit-prev
+    and marker-visit-next to visit the nearest mark in either
+    direction.
+
+  D matlab.el provides support for editing MATLAB dot-m files.  It
+    automatically indents for block structures, line continuations
+    (e.g., ...), and comments.  See RFP Bug #902739.
+
+  T minibuf-electric.el eases minibuffer typing.  When you type "//", it
+    clears the minibuffer back to the start, leaving only a single "/".
+    When you type a "~", it does the similar, leaving only "~/".  This is
+    nicer than having to explicitly erase the contents of the minibuffer.
+    - This is now provided by GNU Emacs, in rfn-eshadow.el.
+      Use this instead:
+      ;;  (setq file-name-shadow-tty-properties '(invisible t))
+      ;;  (file-name-shadow-mode 1)
+
+  D minibuffer-complete-cycle.el makes `minibuffer-complete' select
+    each of the possible completions in turn, inserting it into the
+    minibuffer and highlighting it in the *Completions* buffer.
+
+  D miniedit.el toggles minibuffer editing into a full text-mode buffer for
+    easy multi-line editing of commands.
+
+  E mutt-alias.el provides M-x mutt-alias-insert and M-x
+    mutt-alias-lookup, two commands to lookup and insert the expansion
+    of mutt mail aliases.
+
+  E muttrc-mode.el provides muttrc-mode, a major mode to help the edition
+    of Mutt configuration files.  To use it, either open a file named
+    muttrc, or add a local variables section to the end of your file to
+    specify the mode to be "muttrc".
+
+  D obfusurl.el provides M-x obfuscate-url, a command that will
+    obfuscate an URL under the cursor.
+
+  D pack-windows.el resizes all windows vertically to display as much
+    information as possible with the command `M-x pack-windows'.
+
+  T perldoc.el provides an interface to the "perldoc" command in your
+    Perl-mode or CPerl-mode buffers.  Use (require 'perldoc) in your
+    .emacs to activate it, then place point over a word and press F1.
+    - It's functionality is now largely provided by the GNU Emacs
+      built-in cperl-perldoc.  Please file a bug if this isn't the case.
+
+  D pp-c-l displays Control-l characters in a pretty way.
+
+  E pod-mode.el provides support for editing Plain Old Documentation
+    (Perl documentation) files.  It provides syntax highlighting.
+
+  D projects.el provides M-x add-project, remove-project and
+    list-projects, and introduces the concept of PROJECT ROOTS that allow
+    the user to define logical project names and get abbreviated yet
+    meaningful buffer names in the modeline.
+
+  T protbuf.el provides M-x protect-buffer-from-kill-mode and M-x
+    protect-process-buffer-from-kill-mode, two commands to protect
+    buffers from being accidentally killed.
+    - This functionality is now provided by M-x emacs-lock-mode.
+
+  D protocols.el provides M-x protocols-lookup, to search for info in
+    your /etc/protocols.
+
+  D quack.el provides enhanced support for editing and running Scheme code in
+    both the major and minor modes. It also provides easy access to online
+    references for plt-scheme, books on Scheme, and SRFIs (Scheme Requests
+    For Implementation). Because it invasively changes scheme-mode, it is not
+    enabled by default. To enable it, customize the variable `quack-install'.
+
+  E rfcview.el formats IETF RFCs for improved readability.
+
+  D services.el provides M-x services-lookup, to search for info in
+    your /etc/services.
+
+  E session.el restores various variables (e.g., input histories) from
+    your last session.  It also provides a menu containing recently
+    changed/visited files and restores the places (e.g., point) of
+    such a file when you revisit it.
+
+  D setnu.el provides M-x setnu-mode, a vi-style line number mode.
+
+  T shell-command.el is an enhancement for shell-command, enabling
+    tab-completion of commands and dir/filenames within the
+    shell-command input context.
+    - Tab completion is now built into GNU EMACS
+    - A fancy prompt can be configured thus:
+      Old: (shell-command-make-prompt-string " [%w]%$ " default-directory)
+      New: (format " [%s]$ " (directory-file-name
+                              (abbreviate-file-name default-directory)))
+      -- Thanks to Dima Kogan for this tip.
+
+  D show-wspace.el is a minor mode to highlight whitespaces of various kinds.
+
+  D slang-mode.el is a major mode for editing S-Lang files.
+
+  D silly-mail.el provides M-x add-sm-* commands to add various headers to
+    your email messages.
+
+  T sys-apropos.el provides M-x sys-apropos, an interface to the
+    "apropos" command.
+    - This functionality is provided by "M-x man" and "M-x info", both of
+      which are built into GNU Emacs.
+    - Alternatively, use "M-x counsel-apropos" from the elpa-counsel package.
+
+  E tabbar.el displays buffers as tabs in the header line, and
+    provides commands to switch between them.  You can bind keys to
+    M-x tabbar-forward and M-x tabbar-backward, and use these to
+    quickly switch between buffers.  By default, tabbar-mode will
+    group buffers into various groups, and only display one group at a
+    time on the tabbar; you can change this by customizing tabbar.
+
+  D tail.el provides the commands M-x tail-file and M-x tail-command,
+    to follow the output of a command (or to follow a log file)
+    without using any terminals.
+
+  T tc.el provides a nice way to quote cited texts, with proper
+    filling and attribution.  You can use it for instance by setting
+    the cite function to 'trivial-cite: (setq message-cite-function
+    'trivial-cite).
+    - Gnus, built into GNU Emacs (gnus.el) provides this functionality.
+      The two variables which can be configured to provide identical
+      output to tc.el are:
+        "message-citation-line-function"
+        "message-citation-line-format"
+    - To provide the same format as Kai Grossjohann's recipe in tc.el
+        (setq message-cite-function 'trivial-cite
+              tc-make-attribution 'tc-simple-attribution-kai)
+      the following should now be used:
+        (setq message-citation-line-function
+              'message-insert-formatted-citation-line
+              message-citation-line-format "On %e %B %Y %R %N, wrote:\n")
+      -- Thanks to Gijs Hillenius for investigating and confirming this.
+    - To actually insert the citation use "M-x message-insert-citation-line"
+      This replaces "M-x trivial-cite".
+    - See also "M-;", "string-insert-rectangle", and "mail-yank-prefix".
+
+  D thinks.el provides cartoon-like think bubbles . o O ( like this ).
+    Look for M-x thinks* commands.
+
+  D tlc.el is a major mode for editing Target Language Compiler
+    scripts.  It automatically indents the programming constructs.
+
+  D tld.el provides M-x tld, for easy access to all those top-level
+    domains you just can't remember, and to the corresponding countries.
+    See RFP Bug #907284.
+
+  D todoo.el provides M-x todoo and M-x todoo-mode, to conveniently edit
+    TODO lists.
+
+  D toggle-option.el provides M-x toggle-option, a command to rapidly
+    toggle an option.  You should set the toggle-option-list variable
+    to an appropriate value.
+
+  D twiddle.el provides mode-line hacks.  There are two user commands of
+    interest: twiddle-start and twiddle-compile.
+
+  T under.el provides M-x underline-region, to underline a bit of text
+    with ^ characters like this.
+                      ^^^^^^^^^
+    - "underline-region" is now a GNU Emacs built-in function.
+
+  D upstart-mode.el is a major-mode for editing .upstart files.
+
+  D xrdb-mode.el provides the xrdb-mode major mode, to help you editing X
+    resource database files.  To use it, simple open a file named .Xdefaults,
+    .Xenvironment, .Xresources or *.ad after having enabled it by customising
+    `xrdb-mode-setup-auto-mode-alist'.
+    - Any functionality xrdb-mode provides that isn't already provided by
+      GNU Emacs built-in 'conf-mode' should probably be merged into
+      conf-mode.el.  Without xrdb-mode, GNU Emacs opens these files using
+      conf-xdefaults-mode.  See RFP Bug #902749
+
+ -- Nicholas D Steeves <nsteeves@gmail.com>, Sun, 15 Dec 2019 20:06:31 -0500

@@ -1,0 +1,18 @@
+emacs-goodies-el (38.0) experimental; urgency=medium
+
+  We are migrating emacs-goodies-el to use Debian's support for GNU Emacs's
+  package.el, also known as "ELPA packages".  The main user visible changes are:
+
+  - binary packages will be renamed to elpa-foo, where foo is the name of
+    the addon; transitional packages are provided, so you will find the
+    elpa- packages automatically installed when you upgrade; and
+
+  - xemacs is no longer supported.
+
+  We are also dropping some very old addons which we no longer consider to
+  be maintained or maintainable.
+
+  See /usr/share/doc/emacs-goodies-el/README.Debian.gz for the current
+  status of the migration.
+
+ -- Sean Whitton <spwhitton@spwhitton.name>  Sat, 30 Jun 2018 07:11:36 +0100
