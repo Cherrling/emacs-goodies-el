@@ -3,7 +3,7 @@ Section: editors
 Priority: optional
 Maintainer: Debian Emacsen team <debian-emacsen@lists.debian.org>
 Uploaders: David Bremner <bremner@debian.org>
- , Nicholas D Steeves <nsteeves@gmail.com>
+ , Nicholas D Steeves <sten@debian.org>
 Build-Depends: debhelper-compat (= 12)
 Rules-Requires-Root: no
 Standards-Version: 4.5.0

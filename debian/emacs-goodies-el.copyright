@@ -16,41 +16,6 @@ Comment:
  This covers the debian/* files, and various other glue files written
  specificially for this package.
 
-Files: elisp/emacs-goodies-el/eproject-extras.el
-Copyright: 2009 Jonathan Rockway <jon@jrock.us>
-License: GPL-3+
-
-Files: elisp/emacs-goodies-el/ff-paths.el
-Copyright: 1994-2001 Peter S. Galbraith <GalbraithP@dfo-mpo.gc.ca>,
- <psg@debian.org>
-License: GPL-2+
-
-Files: elisp/emacs-goodies-el/projects.el
-Copyright: 1998 Naggum Software
-License: GPL-2+
-Comment:
- Author: Erik Naggum <erik@naggum.no>
-
-License: GPL-2
- This program is free software; you can redistribute it and/or
- modify it under the terms of the GNU General Public License
- version 2 as published by the Free Software Foundation.
- .
- This program is distributed in the hope that it will be
- useful, but WITHOUT ANY WARRANTY; without even the implied
- warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR
- PURPOSE.  See the GNU General Public License for more
- details.
- .
- You should have received a copy of the GNU General Public
- License along with this package; if not, write to the Free
- Software Foundation, Inc., 51 Franklin St, Fifth Floor,
- Boston, MA  02110-1301 USA
- .
- On Debian systems, the full text of the GNU General Public
- License version 2 can be found in the file
- `/usr/share/common-licenses/GPL-2'.
-
 License: GPL-2+
  This program is free software; you can redistribute it and/or
  modify it under the terms of the GNU General Public License as
@@ -71,23 +36,3 @@ License: GPL-2+
  On Debian systems, the full text of the GNU General Public
  License version 2 can be found in the file
  `/usr/share/common-licenses/GPL-2'.
-
-License: GPL-3
- This program is free software; you can redistribute it and/or
- modify it under the terms of the GNU General Public License
- version 3 as published by the Free Software Foundation.
- .
- This program is distributed in the hope that it will be
- useful, but WITHOUT ANY WARRANTY; without even the implied
- warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR
- PURPOSE.  See the GNU General Public License for more
- details.
- .
- You should have received a copy of the GNU General Public
- License along with this package; if not, write to the Free
- Software Foundation, Inc., 51 Franklin St, Fifth Floor,
- Boston, MA  02110-1301 USA
- .
- On Debian systems, the full text of the GNU General Public
- License version 3 can be found in the file
- `/usr/share/common-licenses/GPL-3'.
